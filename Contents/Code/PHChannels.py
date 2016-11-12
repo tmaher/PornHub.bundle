@@ -40,7 +40,8 @@ def ListChannels(title, url = PH_CHANNELS_BROWSE_URL, page=1):
 
 		# Use xPath to extract channel details
 		channelTitle =		channel.xpath("./div[contains(@class, 'description')]/div[contains(@class, 'descriptionContainer')]/ul/li/a[contains(@class, 'usernameLink')]/text()")[0]
-		channelURL =		'YOUR_MOM' + channel.xpath("./div[contains(@class, 'description')]/div[contains(@class, 'descriptionContainer')]/ul/li/a[contains(@class, 'usernameLink')]/@href")[0]
+		channelURL = 'foad'
+		#channelURL =		'YOUR_MOM' + channel.xpath("./div[contains(@class, 'description')]/div[contains(@class, 'descriptionContainer')]/ul/li/a[contains(@class, 'usernameLink')]/@href")[0]
 		channelThumbnail =	channel.xpath("./div[contains(@class,'description')]/div[contains(@class, 'avatar')]/a/img/@src")[0]
 
 		# Add a menu item for the channel
