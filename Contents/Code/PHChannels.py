@@ -11,16 +11,16 @@ def BrowseChannels(title="DefaultBrowseChannelsTitle"):
 	# Create a dictionary of menu items
 	browseChannelsMenuItems = OrderedDict([
 		('Search Channels',	{'function':SearchChannels, 'search':True, 'directoryObjectArgs':{'prompt':'Search for...','summary':'Enter Channel Search Terms'}}),
-		('Most Popular',	{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_URL, {'o':'rk'})}}),
-		('Trending',		{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_URL, {'o':'tr'})}}),
-		('Most Recent',		{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_URL, {'o':'mr'})}}),
-		('A-Z',			{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_URL, {'o':'al'})}})
+		('Most Popular',	{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_BROWSE_URL, {'o':'rk'})}}),
+		('Trending',		{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_BROWSE_URL, {'o':'tr'})}}),
+		('Most Recent',		{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_BROWSE_URL, {'o':'mr'})}}),
+		('A-Z',			{'function':ListChannels, 'functionArgs':{'url':addURLParameters(PH_CHANNELS_BROWSE_URL, {'o':'al'})}})
 	])
 
 	return GenerateMenu(title, browseChannelsMenuItems)
 
 @route(ROUTE_PREFIX + '/channels/list')
-def ListChannels(title, url = PH_CHANNELS_URL, page=1):
+def ListChannels(title, url = PH_CHANNELS_BROWSE_URL, page=1):
 
 	# Create a dictionary of menu items
 	listChannelsMenuItems = OrderedDict()
