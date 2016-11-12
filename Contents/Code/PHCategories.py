@@ -13,7 +13,7 @@ def BrowseCategories(title=L("DefaultBrowseCategoriesTitle"), url = PH_CATEGORIE
 	html = HTML.ElementFromURL(url)
 
 	# Use xPath to extract a list of catgegories
-	categories = html.xpath("//div[@id='categoriesStraightImages']/ul[contains(@class, 'categories-list')]/li/div")
+	categories = html.xpath("//div[@id='categories%sImages']/ul[contains(@class, 'categories-list')]/li/div" % Prefs['orientation'])
 
 	# Loop through all categories
 	for category in categories:
