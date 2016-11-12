@@ -1,5 +1,12 @@
 [
 	{
+		"id": "orientation",
+		"label": "Gay or Straight",
+		"type": "enum",
+		"values": ["Straight", "Gay"],
+		"default": "Straight"
+	},
+	{
 		"id":		"channelBackgroundArt",
 		"label":	"Background Art",
 		"type":	"enum",
