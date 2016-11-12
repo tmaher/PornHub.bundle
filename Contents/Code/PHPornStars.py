@@ -40,7 +40,7 @@ def ListPornStars(title, url = PH_PORNSTARS_URL, page=1):
 	html = HTML.ElementFromURL(url)
 
 	# Use xPath to extract a list of porn stars
-	pornStars = html.xpath("//ul[contains(@class, 'pornstarIndex')]/li")
+	pornStars = html.xpath("//div[contains(@class, 'pornstarFilterContainer')]/ul/li")
 
 	# Loop through all channels
 	for pornStar in pornStars:
