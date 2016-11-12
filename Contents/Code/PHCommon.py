@@ -7,7 +7,7 @@ from collections import OrderedDict
 ROUTE_PREFIX =				'/video/pornhub'
 
 BASE_URL =				'http://pornhub.com'
-PH_ORIENTATION_URL = {'Straight': '', 'Gay': '/gay'}[Prefs['orientation']]
+PH_ORIENTATION_URL = BASE_URL + {'Straight': '', 'Gay': '/gay'}[Prefs['orientation']]
 PH_VIDEO_URL =				BASE_URL + '/video'
 PH_VIDEO_SEARCH_URL =		PH_ORIENTATION_URL + '/video/search?search=%s'
 
