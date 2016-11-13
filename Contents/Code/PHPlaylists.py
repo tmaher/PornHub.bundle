@@ -12,7 +12,7 @@ def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 	if Prefs["playlists"] != None:
 		for playlist in Prefs["playlists"].split(','):
 			pl_url = PH_PLAYLIST_URL + playlist
-			my_playlists += [("%s :: %d" % (GetPlaylistTitle(pl_url), playlist), {'function':ListVideos, 'functionArgs':{'url': pl_url}})]
+			my_playlists += [("%s :: %s" % (GetPlaylistTitle(pl_url), playlist), {'function':ListVideos, 'functionArgs':{'url': pl_url}})]
 
 	# Create a dictionary of menu items
 	browsePlaylistsMenuItems = OrderedDict(my_playlists + [
