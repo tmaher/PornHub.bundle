@@ -11,7 +11,9 @@ def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 	my_playlists = []
 	if Prefs["playlists"] != None:
 		for playlist in Prefs["playlists"].split(','):
-			my_playlists += [({'function':ListVideos, 'functionArgs':{'url':PH_PLAYLIST_URL + playlist}})]
+			pl_url = PH_PLAYLIST_URL + playlist
+
+			my_playlists += [(GetPlaylistTitle(pl_url) + "::" + playlist, {'function':ListVideos, 'functionArgs':{'url': pl_url}})]
 
 	# Create a dictionary of menu items
 	browsePlaylistsMenuItems = OrderedDict(my_playlists + [
@@ -29,6 +31,10 @@ def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 
 
 	return GenerateMenu(title, browsePlaylistsMenuItems)
+
+def GetPlaylistTitle(url):
+	html = HTML.ElementFromUrl(url)
+	return html.xpath("//div[contains(@id, 'playlistTopHeader')]/h1/a/text()")
 
 @route(ROUTE_PREFIX + '/playlists/list')
 def ListPlaylists(title, url = PH_PLAYLISTS_URL, page=1):
