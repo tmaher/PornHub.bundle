@@ -33,7 +33,7 @@ def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 
 def GetPlaylistTitle(url):
 	html = HTML.ElementFromURL(url)
-	return html.xpath("//div[contains(@id, 'playlistTopHeader')]/h1/a/text()")
+	return html.xpath("//div[contains(@id, 'playlistTopHeader')]/h1/a/text()")[0]
 
 @route(ROUTE_PREFIX + '/playlists/list')
 def ListPlaylists(title, url = PH_PLAYLISTS_URL, page=1):
