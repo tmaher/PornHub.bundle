@@ -24,7 +24,7 @@ def Start():
 	Locale.DefaultLocale = "en"
 
 	# Set the cache lifespan
-	HTTP.CacheTime = CACHE_1HOUR * 2
+	HTTP.CacheTime = CACHE_1MINUTE * 5
 
 	# Set the user agent
 	HTTP.Headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0'
