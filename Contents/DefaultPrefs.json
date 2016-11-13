@@ -10,8 +10,8 @@
 		"id": "playlists",
 		"label": "comma-separated list of playlist numbers, like 4520081,2094671",
 		"type": "text",
-		"default": ""		
-	}
+		"default": ""
+	},
 	{
 		"id":		"channelBackgroundArt",
 		"label":	"Background Art",
