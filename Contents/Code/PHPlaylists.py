@@ -9,8 +9,9 @@ MAX_PLAYLISTS_PER_PAGE =	36
 def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 
 	my_playlists = []
-	for playlist in (Prefs["playlists"] or '').split(',')
-		my_playlists += (playlist, {'function':BrowseVideos,'functionArgs':{'url':PH_PLAYLIST_URL + playlist}})
+	if Prefs["playlists"] != None:
+		for playlist in Prefs["playlists"].split(','):
+			my_playlists += (playlist, {'function':BrowseVideos,'functionArgs':{'url':PH_PLAYLIST_URL + playlist}})
 
 	# Create a dictionary of menu items
 	browsePlaylistsMenuItems = OrderedDict(my_playlists + [
