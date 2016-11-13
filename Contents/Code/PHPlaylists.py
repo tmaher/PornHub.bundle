@@ -8,14 +8,8 @@ MAX_PLAYLISTS_PER_PAGE =	36
 @route(ROUTE_PREFIX + '/playlists')
 def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 
-	my_playlists = []
-	if Prefs["playlists"] != None:
-		for playlist in Prefs["playlists"].split(','):
-			pl_url = PH_PLAYLIST_URL + playlist
-			my_playlists += [("%s :: %s" % (GetPlaylistTitle(pl_url), playlist), {'function':ListVideos, 'functionArgs':{'url': pl_url}})]
-
 	# Create a dictionary of menu items
-	browsePlaylistsMenuItems = OrderedDict(my_playlists + [
+	browsePlaylistsMenuItems = OrderedDict([
 		('Most Recent',				{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'mr'})}}),
 		('Top Rated - All Time',		{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'tr', 't':'a'})}}),
 		('Top Rated - Monthly',		{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'tr', 't':'m'})}}),

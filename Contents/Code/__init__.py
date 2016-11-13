@@ -39,8 +39,14 @@ def ValidatePrefs():
 @handler(ROUTE_PREFIX, NAME, thumb=ICON, art=ART)
 def MainMenu():
 
+	my_playlists = []
+	if Prefs["playlists"] != None:
+		for playlist in Prefs["playlists"].split(','):
+			pl_url = PH_PLAYLIST_URL + playlist
+			my_playlists += [("%s (/playlist/%s)" % (GetPlaylistTitle(pl_url), playlist), {'function':ListVideos, 'functionArgs':{'url': pl_url}})]
+
 	# Create a dictionary of menu items
-	mainMenuItems = OrderedDict([
+	mainMenuItems = OrderedDict(my_playlists + [
 		('Browse All Videos',	{'function':BrowseVideos}),
 		('Categories',			{'function':BrowseCategories}),
 		('Channels',			{'function':BrowseChannels}),
