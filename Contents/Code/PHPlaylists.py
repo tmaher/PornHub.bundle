@@ -33,7 +33,7 @@ def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 	return GenerateMenu(title, browsePlaylistsMenuItems)
 
 def GetPlaylistTitle(url):
-	html = HTML.ElementFromUrl(url)
+	html = HTML.ElementFromURL(url)
 	return html.xpath("//div[contains(@id, 'playlistTopHeader')]/h1/a/text()")
 
 @route(ROUTE_PREFIX + '/playlists/list')
