@@ -1,15 +1,19 @@
 from PHCommon import *
 
 PH_PLAYLISTS_URL =			PH_ORIENTATION_URL + '/playlists'
-PH_PLAYLIST_URL =			BASE_URL + '/playlist'
+PH_PLAYLIST_URL =			BASE_URL + '/playlist/'
 
 MAX_PLAYLISTS_PER_PAGE =	36
 
 @route(ROUTE_PREFIX + '/playlists')
 def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 
+	my_playlists = []
+	for playlist in Prefs["playlists"].split(',')
+		my_playlists.append(playlist, {'function':BrowseVideos,'functionArgs':{'url':PH_PLAYLIST_URL + playlist})
+
 	# Create a dictionary of menu items
-	browsePlaylistsMenuItems = OrderedDict([
+	browsePlaylistsMenuItems = OrderedDict(my_playlists + [
 		('Most Recent',				{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'mr'})}}),
 		('Top Rated - All Time',		{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'tr', 't':'a'})}}),
 		('Top Rated - Monthly',		{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'tr', 't':'m'})}}),
@@ -21,6 +25,7 @@ def BrowsePlaylists(title=L("DefaultBrowsePlaylistsTitle")):
 		('Most Viewed - Daily',		{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'mv', 't':'d'})}}),
 		('Most Favorited',			{'function':ListPlaylists, 'functionArgs':{'url':addURLParameters(PH_PLAYLISTS_URL, {'o':'mf'})}})
 	])
+
 
 	return GenerateMenu(title, browsePlaylistsMenuItems)
 
